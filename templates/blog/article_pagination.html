@@ -1,0 +1,26 @@
+<!-- Pagination Section -->
+<div class="container my-5">
+    <div class="blog-pag d-flex align-items-center justify-content-center">
+        <!-- Previous Page -->
+        {% if articles.has_previous %}
+        <a href="?article_page={{ articles.previous_page_number }}" class="ri-arrow-left-s-line mx-3" aria-label="Previous Page"></a>
+        {% else %}
+        <span class="ri-arrow-left-s-line mx-3 disabled" style="cursor: not-allowed;" aria-disabled="true"></span>
+        {% endif %}
+
+        <!-- Current Page Info -->
+        <div>{{ articles.number }} of {{ articles.paginator.num_pages }}</div>
+
+        <!-- Next Page -->
+        {% if articles.has_next %}
+        <a href="?article_page={{ articles.next_page_number }}" class="ri-arrow-right-s-line mx-3" aria-label="Next Page"></a>
+        {% else %}
+        <span class="ri-arrow-right-s-line mx-3 disabled" style="cursor: not-allowed;" aria-disabled="true"></span>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,208 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MindShiftWithAshe | Read </title>
+    
+    <link rel="stylesheet" href="../../static/css/blogpost.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/useFont/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fastbootstrap@2.2.0/dist/css/fastbootstrap.min.css" rel="stylesheet" integrity="sha256-V6lu+OdYNKTKTsVFBuQsyIlDiRWiOmtC8VQ8Lzdm2i4=" crossorigin="anonymous">
+</head>
+
+<body class="body">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg bg-white position-sticky fixed-top mb-5">
+      <div class="pl-3 container">
+        <a class="navbar-brand fs-4"><span class="ms-madi-regular">MindShiftWithAshe</span></a>
+        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="sidebar offcanvas sideback offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header sideback border-bottom">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><span class="font">MindShiftWithAshe</span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+              <li class="nav-item my-4"><a class="nav-link" aria-current="page" href="{% url 'blog:home'%}">Home</a></li>
+              <li class="nav-item my-4"><a class="nav-link" href="{% url 'blog:home'%}#videos">Videos</a></li>
+              <li class="nav-item my-4"><a class="nav-link" href="{% url 'blog:home'%}#about">About</a></li>
+              <li class="nav-item my-4"><a class="nav-link" href="{% url 'blog:home'%}#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  <!-- Main Content Wrapper --> 
+  <div class="container">
+    <div class="row">
+        <div class="col-md-8 main-pos">
+            <!-- Blog title and content here -->
+            <p class="playfair-display">{{article.title}}</p>
+            <div 
+            class="post-image" 
+            style="background-image: url('{{ article.image_file.url }}'); background-size: cover; background-position: center; width: 90%; height: 400px; position: relative;">
+            <div type="button" class="credit">Credit</div>
+        </div>
+            <div class="post-icon d-flex">
+                <div class="i-color">
+                    <i class="ri-mail-line"></i>
+                    <i class="ri-facebook-circle-fill"></i>
+                    <i class="ri-twitter-line"></i>
+                </div>
+                <div class="heart-icon d-flex">
+                    <i class="ri-heart-3-line"></i>
+                    <p class="mt-2">{{article.likes}}</p>
+                </div>
+            </div>
+
+            <!-- Blog content starts -->
+            <div class="blog-paragraph">
+                <div class="time-posted mt-5"><h4>{{article.created|date:"F jS, Y"}}</h4></div>
+                <p class="my-5">{{article.body|safe}}</p>
+            </div>
+            <!-- Blog content ends -->
+
+            <!-- Comment Section -->
+            <div class="comment text-center">
+                <h6 class="my-3 playfair-display">Leave a comment</h6>
+                <form action="{% url 'blog:detail-page' slug=article.slug %}" method="POST">
+                    {% csrf_token %}
+                    <div class="d-flex">
+                        <div>
+                            <div class="comment-name mb-2">
+                                <input type="text" name="name" class="comment-input mb-2" placeholder="Your Name" required>
+                            </div>
+                            <div class="comment-name my-2">
+                                <input type="email" name="email" class="comment-input" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="comment-area">
+                            <div class="comment-name ml-3">
+                                <textarea name="body" class="comment-input comment-area" placeholder="Type your comment here" rows="4" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="button comment-button">Submit Comment</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Display Comments -->
+            <div class="text-center mt-4 mb-4">
+              <h3 class="my-4 playfair-display">
+                  {{ total_comments }} Comment{{ total_comments|pluralize }}
+              </h3>
+              {% for comment in comments %}
+              <div class="p-3 first-comment">
+                  <div class="head d-flex">
+                      <div><p>{{ comment.name }}</p></div>
+                      <div><p>{{ comment.created|date:"d.m.Y" }}</p></div>
+                  </div>
+                  <p class="p-bottom">{{ comment.body }}</p>
+                  <button type="button" class="reply-button" data-bs-toggle="modal" data-bs-target="#replyModal{{ comment.id }}">
+                      Reply
+                  </button>
+              </div>
+              {% endfor %}
+          </div>
+          
+        </div>
+
+
+
+        
+        <!-- Related Content Section -->
+        <div class="col-md-4 related-posts">
+          <h4>Related Videos</h4>
+          {% if similar_vlog_filtered %}
+              {% for vlog in similar_vlog_filtered %}
+              <div class="body-one text-center">
+                  <div class="blog-one py-4">
+                      <video id="vid" class="vid-one" width="350px" controls>
+                          <source src="{{vlog.video_file.url}}" type="video/mp4">
+                      </video>  
+                  </div>
+                  <h6 class="remove-m">{{vlog.title}}</h6>
+                  <p>{{vlog.description|safe}}</p>
+                  <div class="blog-icon d-flex">
+                      <div><i class="ri-share-line"></i></div>
+                      <div class="text-dark d-flex">
+                          <i class="ri-heart-3-line"></i>
+                          <p class="mt-1">{{vlog.like}}</p>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          {% else %}
+              <p>This post does not have any related videos.</p>
+          {% endif %}
+      
+          <h5 class="text-post">Related Articles</h5>
+          {% if similar_articles_filtered %}
+              {% for x in similar_articles_filtered %}
+              <div class="mt-3 p-2 backg text-center">
+                  <h6><a href="{% url 'blog:detail-page' slug=x.slug %}" style="color: inherit; text-decoration: none;">{{ x.title }}</a></h6>
+                  <p>{{x.body|truncatewords:25}}</p>
+              </div>
+              {% endfor %}
+          {% else %}
+              <p>This post does not have any related articles.</p>
+          {% endif %}
+      </div>
+      
+
+<!-- older and new posts -->
+<!-- Older and Newer Posts Navigation -->
+<div class="text-center my-4">
+  <div class="navigations d-flex justify-content-between">
+    {% if previous_article %}
+    <div class="newerPost d-flex align-items-center">
+      <a href="{% url 'blog:detail-page' slug=previous_article.slug %}" class="d-flex align-items-center text-decoration-none text-dark">
+        <i class="fa-solid fa-arrow-left"></i>
+        <p class="mb-0 ms-2">Newer Posts</p>
+      </a>
+    </div>
+    {% else %}
+    <div class="newerPost d-flex align-items-center text-muted">
+      <i class="fa-solid fa-arrow-left"></i>
+      <p class="mb-0 ms-2">Newer Posts</p>
+    </div>
+    {% endif %}
+
+    {% if next_article %}
+    <div class="olderPost d-flex align-items-center">
+      <a href="{% url 'blog:detail-page' slug=next_article.slug %}" class="d-flex align-items-center text-decoration-none text-dark">
+        <p class="mb-0 me-2">Older Posts</p>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    {% else %}
+    <div class="olderPost d-flex align-items-center text-muted">
+      <p class="mb-0 me-2">Older Posts</p>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- older and new post ends here -->
+
+    </div> <!-- Closing the row div -->
+  </div> <!-- Closing the container div -->
+</body>
+</html>
+
+{% endblock %}

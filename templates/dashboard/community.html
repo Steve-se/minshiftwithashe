@@ -1,0 +1,463 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+<!-- section for community starts here -->
+<section id="community">
+  <div class="container">
+    <div class="tbl_container">
+      <div class="card">
+  
+  
+        <div class="content-title">
+          <h6>Comment Moderation</h6>
+      </div>
+      <table class="table">
+          <thead>
+            <tr class="bk">
+              <th scope="col">Comment</th>
+              <th scope="col">Executed By</th>
+              <th scope="col">
+                <div class="date d-flex">
+                 <div>
+                  Date
+                 </div>
+                  <div>
+                    <i class="fa-solid mx-2  mt-1 fa-arrow-down"></i>
+                  </div>
+                </div>
+              </th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <!-- first comment -->
+              <th class="d-flex">
+                  <div class="checkbox">
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+             <div><!-- main comment -->
+                <p>Thank you for your kinds words Ashe!</p>
+                <p class="grey">In: Faith Over Fear: A Min Shift for Courageous Living</p>
+            </div>
+            </th>
+  
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">GY</h4><!-- comment name abbreviation -->
+                  </div>
+                  <div class="fullname"><!-- comment name -->
+                    <h6>Georgia Young</h6>
+                    <p class="grey">geogiayoung@gmail.com</p><!-- comment email -->
+                  </div>
+                </div>
+              </td>
+  
+              <!-- comment data -->
+              <td>jul 13,2024</td>
+              <td><p>
+                <div class="d-flex approve"><!-- approve verification -->
+                <div>
+                  <i class="fa-solid fa-circle approve-circle"></i>
+                </div>
+                  <div>
+                    Approved
+                  </div>
+                </div>
+              </p>
+            
+            </td>
+              <td>
+                <i class="ri-checkbox-circle-line color"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line "></i></td><!-- delete icon -->
+            </tr>
+            <!-- first comment ends here  -->
+  
+  
+  
+  
+  
+            <!-- second comment start here-->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- comment check box-->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+               <div><!-- main comment -->
+                  <p>One thing i'd like to point out with your post is that it only focuses on the why of things and not the when. I dont't even..</p>
+              <p  class="grey">In: The Power of Forgiveness: A Mind Shift Toward Healing</p>
+               </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">SC</h4><!-- comment name abbreviation -->
+                  </div>
+                  <div class="fullname">
+                    <h6>Sara Cruz</h6><!-- comment name -->
+                    <p class="grey">sara.cruz@gmail.com</p><!-- comment email -->
+                  </div>
+                </div>
+              </td>
+              <td>jul 13, 2024</td><!-- comment data -->
+              <td><p class="Delete"><i class="fa-solid fa-circle delete-circle"></i>Deleted</p></td>
+              <td>
+                <i class="ri-checkbox-circle-line"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line color"></i></td><!-- action delete icon -->
+            </tr>
+            <!-- second comment ends -->
+  
+  
+  
+  
+  
+            <!-- third comment starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox">
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+              <div><!-- main comment -->
+                  <p>Kudos Ashe keep it up!</p>
+              <p  class="grey">In: Silencing Inner Criticism:  Embracing God's Voice Withing</p>
+              </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">NR</h4><!-- comment name abrevation  -->
+                  </div>
+                  <div class="fullname">
+                    <h6>Nathan Roberts</h6><!--  comment full name-->
+                    <p class="grey">nathan.roberts@gmail.com</p><!-- comment email -->
+                  </div>
+                </div>
+              </td>
+              <td>jul 13, 2024</td><!-- comment data -->
+    
+              <td>
+                <p>
+                <div class="d-flex approve"><!-- approve verification -->
+                <div>
+                  <i class="fa-solid fa-circle approve-circle"></i>
+                </div>
+                  <div>
+                    Approved
+                  </div>
+                </div>
+              </p></td>
+              <td>
+                <i class="ri-checkbox-circle-line color"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- acion  delete icon-->
+            </tr>
+            <!-- third comment ends here -->
+  
+  
+  
+  
+            <!--- fourht comment starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- check box -->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+               <div><!-- main comment -->
+                  <p>Very well said</p>
+              <p class="grey">In: Letting Go of Comparison: Embracing Your Unique Journey</p>
+               </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">DC</h4><!-- comment name abrevation -->
+                  </div>
+                  <div class="fullname"><!-- comment full name and email -->
+                    <h6>Debra Holt</h6>
+                    <p class="grey">debra.holt@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>jul 13, 2024</td><!-- comment data -->
+              
+              <td><p>
+                <div class="d-flex approve"><!-- approved verification -->
+                <div>
+                  <i class="fa-solid fa-circle approve-circle"></i>
+                </div>
+                  <div>
+                    Approved
+                  </div>
+                </div>
+              </p></td>
+              <td>
+                <i class="ri-checkbox-circle-line color"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- action delete icon -->
+            </tr>
+  <!-- fourth comment end here-->
+  
+  
+  
+  
+            <!-- fifth comment starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- check box -->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+            <div><!-- main comment -->
+                <p>Oh my God that is just the word i needed today my upliftment</p>
+                <p class="grey">In: Cultivating Gratitude: A Mind Shift Toward Abundance</p>
+            </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">DC</h4><!-- comment name abrevation -->
+                  </div>
+                  <div class="fullname"><!-- comment full name and email -->
+                    <h6>Dolors Chambers</h6>
+                    <p class="grey">dolores.chamber@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>jul 13, 2024</td><!-- comment date -->
+         
+              <td>
+                <p>
+                <div class="d-flex new-achieved"><!-- achieved verification -->
+                <div>
+                  <i class="fa-solid fa-circle new-ach-circle"></i>
+                </div>
+                  <div>
+                    Pending
+                  </div>
+                </div>
+              </p></td>
+              <td>
+                <i class="ri-checkbox-circle-line"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- acion delete icon -->
+            </tr>
+            <!-- fifth comment ends here-->
+  
+  
+  
+  
+  
+            <!-- sixth comment starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- check box-->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+              <div><!-- main comment -->
+                  <p>Wow truely heart touching</p>
+              <p  class="grey">In:Silencing Inner Criticism: Embracing God's Voice within</p>
+              </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">FR</h4><!-- comment name abrevation-->
+                  </div>
+                  <div class="fullname"><!-- comment name and email -->
+                    <h6>Felicia Reld</h6>
+                    <p class="grey">felicia.reld@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>jul 8, 2024</td><!-- comment date -->
+          
+              <td><p>
+                <div class="d-flex approve"><!-- approve verification -->
+                <div>
+                  <i class="fa-solid fa-circle approve-circle"></i>
+                </div>
+                  <div>
+                    Approved
+                  </div>
+                </div>
+              </p></td>
+              <td>
+                <i class="ri-checkbox-circle-line color"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- action delete icon -->
+            </tr>
+            <!-- sixth comment ends here-->
+  
+  
+  
+  
+  
+            <!-- seventh comment starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- action checkbox -->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+             <div><!-- main comment -->
+                <p>I'm so excited for tomorrow release!</p>
+                <p  class="grey">In: Breaking Free from Insecurity: A Mind Shift Toward God's Love</p>
+             </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">GY</h4><!-- comment name abrevation -->
+                  </div>
+                  <div class="fullname"><!-- comment full name and email -->
+                    <h6>Georgia Young</h6>
+                    <p class="grey">geogiayoung@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>jul 8, 2024</td><!-- comment date -->
+            
+              <td><p>
+                <div class="d-flex new-achieved"><!-- achieved verificaiton -->
+                <div>
+                  <i class="fa-solid fa-circle new-ach-circle"></i>
+                </div>
+                  <div>
+                    Pending
+                  </div>
+                </div>
+              </p></td>
+              <td>
+                <i class="ri-checkbox-circle-line"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- action delete icon -->
+            </tr>
+            <!-- seventh comment ends here-->
+  
+  
+  
+  
+  
+  
+            <!-- eight comments starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- check box-->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+              <div><!-- main comment -->
+                  <p>Just what i needed to hear</p>
+              <p  class="grey">In: Embracing God's Purpose: A Mind Shift Toward Fullfillment</p>
+              </div>
+            </th>
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">GY</h4><!-- comment name abrevation -->
+                  </div>
+                  <div class="fullname"><!-- comment name and email-->
+                    <h6>Georgia Young</h6>
+                    <p class="grey">geogiayoung@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>jul 8, 2024</td><!-- comment data -->
+            
+              <td><p>
+                <div class="d-flex approve"><!-- approved verification -->
+                <div>
+                  <i class="fa-solid fa-circle approve-circle"></i>
+                </div>
+                  <div>
+                    Approved
+                  </div>
+                </div>
+              </p></td>
+              <td>
+                <i class="ri-checkbox-circle-line color"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- action check box -->
+            </tr>
+            <!-- eight comment ends here -->
+  
+  
+  
+  
+            <!--- ninth comment starts here -->
+            <tr>
+              <th class="d-flex">
+                  <div class="checkbox"><!-- check box-->
+                      <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                   </div>
+             <div><!-- main comment -->
+                <p>You know these things need to be said more often than not</p>
+                <p  class="grey">In: Overcoming Spiritual Stagnation: Reigning Your Passion for God</p>
+             </div>
+            </th>
+            
+              <td>
+                <div class="person d-flex align-items-center">
+                  <div class="letter mr-2">
+                    <h4 class="mx">DC</h4><!-- comment name abrevation -->
+                  </div>
+                  <div class="fullname"><!-- comment full name and email -->
+                    <h6>Dolors Chambers</h6>
+                    <p class="grey">dolores.chamber@gmail.com</p>
+                  </div>
+                </div>
+              </td>
+              <td>jul 8, 2024</td><!-- comment date -->
+    
+              <td>
+                <p>
+                <div class="d-flex approve"><!-- comment approve verification -->
+                <div>
+                  <i class="fa-solid fa-circle approve-circle"></i>
+                </div>
+                  <div>
+                    Approved
+                  </div>
+                </div>
+              </p>
+            </td>
+  
+              <td>
+                <i class="ri-checkbox-circle-line color"></i>
+              </td>
+              <td><i class="ri-delete-bin-7-line"></i></td><!-- action delete icon  <i class="ri-checkbox-circle-line"></i> -->
+            </tr>
+          <!-- ninth comment ends here -->
+          </tbody>
+       
+        </table>
+        <hr>
+      
+      <!-- pagination -->
+      <div class="container mb-2">
+        <div class="pagination d-flex">
+          <div class="count">
+            <p>1 of 10</p>
+          </div>
+          <div class="pag-button d-flex">
+            <button class="prev mr-3 px-1">Previous</button>
+            <button class="next ml-3 px-1">Next</button>
+          </div>
+           </div>
+      </div>
+  
+      <!-- pagination  ends here -->
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- section for community ends -->
+
+
+
+</div>
+   <!-- main-content ends -->
+
+{%endblock%}

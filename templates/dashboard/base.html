@@ -1,0 +1,84 @@
+{% load static %}
+
+
+<head>
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+    <link rel="stylesheet" href="useFont/css/all.css">
+    <link rel="stylesheet" href="../../static/css/create.css">
+    <link rel="stylesheet" href="../../static/css/editor.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap/css/bootstrap.min.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fastbootstrap@2.2.0/dist/css/fastbootstrap.min.css" rel="stylesheet" integrity="sha256-V6lu+OdYNKTKTsVFBuQsyIlDiRWiOmtC8VQ8Lzdm2i4=" crossorigin="anonymous">
+</head>
+<body>
+ <div class="wrapper">
+<aside id="sidebar">
+<div class="h-100">
+    <div class="sidebar-logo">
+        <span class="ms-madi-regular size">MindShiftWithAshe</span>
+    </div>
+    <hr>
+    <div class="sidebar-nav">
+
+      <li>
+       <a href="{% url 'dashboard:content_page' %}">
+         <button>Content  <i class="ri-file-edit-line"></i></button>
+       </a>
+      </li>
+       
+      <li>
+       <a href="{% url 'dashboard:create_page' %}">
+         <button>Create  <i class="ri-edit-2-line"></i></button>
+       </a>
+      </li>
+ 
+   <hr>
+   <li>
+       <a href="{% url 'dashboard:community_page' %}">
+         <button>Community <i class="ri-group-line"></i></button>
+       </a>
+   </li>
+ 
+   <hr>
+
+     <li>
+       <a href="{% url 'account:login' %}">Log out
+         <i class="ri-logout-box-r-line"></i>
+       </a>
+   </li>
+
+ </div>
+<!-- ul //-->
+</div>
+</aside>
+<div class="main">
+    <nav class="navbar navbar-expand px-3 bg-white border-bottom fixed-top">
+        <button class="btn" id="sidebar-toggle" type="button" >
+             <span><i class="fa-solid fa-bars"></i></span>
+        </button>
+       
+    </nav>
+    
+
+    {%block content%}{%endblock%}
+
+</div>
+</div>
+
+
+
+
+   <script src="css/bootstrap/js/bootstrap.bundle.js"></script>
+   <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="css/bootstrap/js/jquery.min.js"></script>
+   <script src="dashboard.js"></script>
+   <script src="blog.js"></script>
+   <script src="css/editor.js"></script>
+ 
+</body>
+</html>

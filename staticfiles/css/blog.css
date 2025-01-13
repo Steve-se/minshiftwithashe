@@ -1,0 +1,612 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,700;0,900;1,700;1,900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ms-madi-regular {
+  font-family: "Ms Madi", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+.navbar-brand{
+  color: #002240;
+}
+
+
+.sub-container {
+  width: 90%;        /* Takes up 90% of the viewport width */
+  max-width: 1200px; /* Max width ensures it doesn't get too wide on large screens */
+  margin: 0 auto;    /* Centers the container */
+  padding: 20px;     /* Adds some padding inside the container */
+
+}
+
+.hero-section{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../imgBlog/mainGrass.jpg);
+  background-repeat: no-repeat;
+ margin-top: -60px;
+  background-position: center;
+  background-size: cover;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+
+
+.sideback{
+  background-color: rgb(235, 238, 230);
+}
+
+.navbar .offcanvas-body .navbar-nav{
+  padding-left: 50px;
+}
+
+.hero-text{
+margin-top: 250px;
+
+}
+
+.hero-section h6{
+  margin-top:60px;
+}
+
+.hero-buttons{
+  margin-top: 40px;
+}
+
+
+
+.image{
+  background-color: beige;
+  padding-top: 60px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+.image .icons .fa-brands{
+  margin: 0 28px;
+}
+
+
+.image .icons .fa-instagram, .fa-twitter{
+  background-color:beige;
+}
+
+.times{
+  font-family:   'Times New Roman', Times, serif;
+
+}
+
+.article-push{
+  margin-top:30px;
+}
+
+
+.fw{
+  text-align: center;
+color: rgb(207, 199, 199);
+}
+
+.fw-bold{
+
+  color:grey;
+}
+
+.grey-col{
+  color: grey;
+}
+
+.first-ele{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0.2)), url(../../static/img/miss_ashe1.jpg);
+  color: #fff;
+  background-repeat: no-repeat;
+  padding: 0 8px;
+  height: 230px;
+  width:250px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+  margin-bottom: -8px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+
+.play-blog{
+  margin-top: 65%;
+}
+
+.icons{
+  margin-top: 30px;
+}
+
+.icons i{
+  margin: 3px 20px;
+  font-size: 19px;
+}
+
+.bible{
+background-image: url(../img/mainbil.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+height: 400px;
+padding-top:100px;
+}
+
+.ri-heart-3-line{
+  font-size: 23px;
+}
+
+.bible h5{
+  font-size: 30px;
+}
+
+.grid{
+  background-color: 	#FFF5EE;
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+.midddle-blog h5{
+  margin-left: 10px;
+}
+
+.midddle-blog{
+  justify-content: space-between;
+}
+
+
+
+.midddle-blog ul{
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+  margin: 10px 0;
+  padding: 0;
+}
+
+.midddle-blog ul li{
+  list-style-type: none;
+  padding: 10px 15px;
+  border: 1px solid pink;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px; /* Add border-radius for smooth corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.midddle-blog ul li:hover{
+  background: #fff;
+  color: palevioletred;
+}
+
+
+.first-blog{
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+}
+
+.second-part{
+  margin-top:30px;
+}
+
+.grid-one{
+  background: white;
+  margin: 10px 8px;
+  padding: 10px 8px;
+}
+
+.sec-grid{
+  margin-top:50px;
+}
+
+.search-blog{
+  padding: 20px 0;
+}
+
+.search-blog .search{
+  margin-left: auto;
+}
+
+.sort-row{
+  margin-bottom: 50px;
+}
+
+.blog-icon{
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-one{
+  color: #fff;
+
+
+}
+
+.vid-one{
+  width:100%;
+}
+
+.blog-two{
+  color: #fff;
+}
+
+.blog-three{
+  color: #fff;
+}
+
+.blog-four{
+  color: #fff;
+}
+
+.blog-five{
+  color: #fff;
+}
+
+.blog-six{
+  color: #fff;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.grid-item{
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px  rgba(0,0,0,0,1);
+  text-align: center;
+}
+
+.grid-container .card{
+  border:none;
+}
+
+
+.grid-container-all{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px; /* Adjust the gap between grid items */
+  padding: 10px; /* Optional: Padding around the grid */
+}
+
+.grid-item-one{
+  background-color: #ccc;
+  border: 1px solid #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.grid-container-all .card{
+border:none;
+
+}
+
+.expect{
+  margin-bottom: 20px;
+}
+
+.ri-share-line{
+color:black;
+font-size: 23px;
+}
+
+.read-button{
+background:transparent;
+border: 2px solid pink;
+padding: 8px 12px;
+margin-bottom: 8px;
+width:150px;
+margin: 0 auto;
+}
+
+/* blog search */
+.search{
+  width: max-content;
+  display: flex;
+  margin-top: -15px;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+}
+
+.search-input{
+  font-size: 16px;
+  font-family: 'Lexend', sans-serif;
+  color: #333333;
+  margin-right: 14px;
+  outline: none;
+  background: transparent;
+  border:none;
+}
+
+.blog-pag{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 23px;
+}
+
+.art{
+  color: grey;
+  margin-bottom: 70px;
+  font-size: 19px;
+}
+
+.sort-bottom{
+  margin-top: 15px;
+}
+
+.journey{
+  font-weight: 500;
+}
+
+.col-md .read-button a{
+  text-decoration: none;
+  color: #002240;
+ 
+}
+
+.col-md .read-button p{
+ text-align: center;
+  padding: 8px 10x;
+  border: 1px solid pink;
+width: 100px;
+margin: 0 50px;
+}
+
+.last-quote{
+background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url(../img/snowsit.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+height: 400px;
+margin-top: -50px;
+padding-top:100px;
+
+}
+
+
+
+.last-quote .quote-text h5{
+color: white;
+font-size: 25px;
+}
+
+
+
+/* footer styles */
+.footer{
+  background-color: rgb(229, 238, 218);
+  padding-top: 60px;
+  padding-bottom: 50px;
+  color: #958d8de2;
+}
+
+.footer .contact ul li{
+  list-style-type: none;
+  margin: 5px 0;
+}
+
+.sub-width{
+  max-width: 460px;
+}
+
+form p{
+  color: #000000;
+  font-weight: 600;
+}
+
+.footer .border{
+  outline: none;
+  padding: 10px 20px;
+  margin: 7px 0;
+  border:none;
+}
+
+.footer .news{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #002240;
+  font-size: 20px;
+}
+
+.footer .new-email{
+  margin-top:12px;
+  margin-bottom: -6px;
+}
+
+
+
+.footer .contact{
+  display: flex;
+}
+
+.footer .submit{
+  border:none;
+  margin: 7px 0;
+  padding: 8px 10px;
+  border-radius: 3px;
+  font-size: 20px;
+  background-color:  rgb(219, 243, 181);
+}
+
+.size{
+  font-size: 25px;
+}
+
+.footer .info{
+  justify-content: space-between;
+}
+
+.info{
+  display: flex;
+  margin-top: 40px;
+}
+
+
+/* -------------MEDIA QUERY------------------- */
+@media (max-width: 768px) {
+  .grid-container-all {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .grid-container-all {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}
+
+
+@media (min-width: 1131px){
+  .footer .exp{
+    margin-right: 30px;
+  }
+}
+
+
+
+@media (max-width: 860px){
+  .new-email{
+    text-align: 0;
+  }
+}
+
+@media (min-width:463px){
+  .info .ml{
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 500px){
+        .info{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        }
+
+}
+
+@media (max-width: 380px){
+
+.hero-buttons .btn{
+  margin: 15px 0;
+}
+  .footer .details-margin .margin-right {
+    font-size: 10px;
+    margin-right:-10px;
+  }
+
+  .footer .details-margin .margin-left {
+    font-size: 10px;
+  
+  }
+
+
+  .footer input{
+    width: 120px;
+  }
+
+  .footer .new-email input{
+    width: 150px;
+  }
+}
+
+/* 
+@media (max-width: 430px){
+  .midddle-blog ul{
+   font-size: 12px;
+   margin-left: -50px;
+  }
+} */
+
+@media (max-width: 480px){
+  .news-width  .mus{
+    width:150px;
+  }
+
+  .news-width .mus-email{
+    width:250px;
+  }
+}
+
+
+/* Category section styling */
+.midddle-blog ul {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+  margin: 10px 0;
+  padding: 0;
+}
+
+.midddle-blog ul li {
+  list-style-type: none;
+  padding: 10px 15px;
+  border: 1px solid pink;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px; /* Add border-radius for smooth corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.midddle-blog ul li:hover {
+  background: #fff;
+  color: palevioletred; /* Color change on hover */
+}
+
+/* Improved grid layout for categories on small screens */
+@media (max-width: 768px) {
+  .midddle-blog ul {
+    justify-content: center; /* Center items on small screens */
+  }
+
+  .midddle-blog ul li {
+    font-size: 14px; /* Adjust font size on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .midddle-blog ul li {
+    font-size: 12px; /* Even smaller font size for very small screens */
+    padding: 8px 12px; /* Adjust padding to fit smaller screens */
+  }
+}
+
+
+
+
+
+
+

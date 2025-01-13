@@ -1,0 +1,79 @@
+{% if vlogs %}
+    {% for vlog in vlogs %}
+    <div class="grid-item card mt-3 text-center bg-white grid-one">
+        <div class="blog-one">
+            <video id="vid" class="vid-one" width="350px" controls>
+                <source src="{{ vlog.video_file.url }}" type="video/mp4">
+                <source src="{{ vlog.video_file.webm_url }}" type="video/webm">
+                <source src="{{ vlog.video_file.ogv_url }}" type="video/ogg"> 
+            </video>   
+        </div>
+        <h6 class="py-3">{{ vlog.title }}</h6>
+        <p>{{ vlog.description|safe }}</p>
+        <div class="blog-icon d-flex">
+            <div>
+                <a 
+                    href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                    target="_blank" 
+                    style="
+                        display: inline-flex; 
+                        align-items: center; 
+                        justify-content: center; 
+                        color: black; 
+                        width: 25px; 
+                        height: 25px; 
+                        text-decoration: none; 
+                        font-size: 20px;
+                    "
+                    aria-label="Share"
+                >
+                    <i class="ri-share-line"></i>
+                </a>
+            </div>
+            
+            <div class="text-dark d-flex" id="like-section-{{ vlog.id }}">
+                <i 
+                    class="ri-heart-3-line" 
+                    id="like-icon-{{ vlog.id }}" 
+                    style="cursor: pointer;"
+                    onclick="likeVlog({{ vlog.id }})"
+                ></i>
+                <p class="mt-1" id="like-count-{{ vlog.id }}">{{ vlog.like }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    {% if vlog_selected_category %}
+        <div class="text-center mt-5">
+            <p class="text-muted">No vlogs available in the "{{ vlog_selected_category }}" category.</p>
+        </div>
+    {% else %}
+        <div class="text-center mt-5">
+            <p class="text-muted">No vlog content yet.</p>
+        </div>
+    {% endif %}
+{% endif %}
+
+
+
+
+<script>
+    function likeVlog(vlogId) {
+        fetch(`/like/${vlogId}/`, {
+            method: 'GET',  // Use GET if no CSRF token is required
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.liked) {
+                const likeIcon = document.getElementById(`like-icon-${vlogId}`);
+                const likeCount = document.getElementById(`like-count-${vlogId}`);
+                likeIcon.style.color = 'red'; // Highlight the icon
+                likeCount.textContent = data.likes_count;
+            } else {
+                alert(data.message); // Notify if already liked
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>

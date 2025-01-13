@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+.ms-madi-regular {
+  font-family: "Ms Madi", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body{
+    background-color: rgb(236, 225, 205);
+}
+
+
+
+.form-box{
+text-align: center;
+background: #fff;
+width: 450px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 60px;
+margin-bottom: 30px;
+padding: 20px 30px;
+border-radius: 8px;
+}
+
+.container p{
+  font-size: 25px;
+}
+
+.form-box input{
+    border:none;
+    outline: 1px solid rgb(240, 241, 187);
+    padding: 9px 8px;
+    width: 100%;
+}
+
+.form-box .emLabel{
+    margin-left: -350px;
+    margin-bottom: -1px;
+}
+
+.form-box .email{
+    margin-bottom: 20px;
+}
+
+.form-box .input-password{
+    margin-bottom: 20px;
+}
+
+.form-box .passFor{
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.form-box .passFor a{
+    text-decoration: none;
+    color:#d8abab;
+}
+
+.form-box .button-link a{
+    text-decoration: none;
+    color:rgb(133, 124, 124);
+   
+}
+
+.form-box .button-link{
+    background:rgb(248, 247, 161);
+    padding: 8px 4px;
+   
+}

@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.ms-madi-regular {
+  font-family: "Ms Madi", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+    background-color: rgb(236, 229, 230);
+}
+
+
+
+.sideback{
+  background-color: rgb(235, 238, 230);
+}
+
+.navbar .offcanvas-body .navbar-nav{
+  padding-left: 50px;
+}
+
+.main-pos{
+  width: 100vw;
+}
+
+.container-remember{
+  max-width: 11200px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+/* .post-image{
+background-image: url(../imgBlog/coffee3.jpg);
+background-size: cover;
+background-position: center;
+width: 90%;;
+height: 400px;
+position: relative;
+} */
+
+.post-image .credit{
+ position: absolute;
+bottom:0;
+color: rgb(37, 36, 36);
+background: pink;
+padding: 8px 12px;
+
+}
+.i-color{
+  color: black;
+}
+
+.i-color .ri-mail-line, .ri-facebook-circle-fill, .ri-twitter-line{
+  margin: 0 10px;
+}
+.post-icon{
+  justify-content: space-between;
+  margin: 8px 0
+}
+ .post-icon i{
+   font-size: 25px;
+ }
+
+ .ri-heart-3-line{
+   font-size: 23px;
+ }
+
+.post-icon .fa-solid, .fa-brands{
+  color: black;
+}
+
+  .blog-one video, .blog-two video, .blog-three video{
+    width:100%;
+  }
+
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .grid-item{
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px  rgba(0,0,0,0,1);
+    text-align: center;
+  }
+
+
+.text-post{
+  margin-top: 40px;
+}
+
+  .backg{
+    background-color: rgb(255, 251, 251);
+  }
+
+  .body-one{
+    background-color: rgb(255, 251, 251);
+    padding: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  .play{
+margin-top: 80px;
+margin-left: 120px;
+  }
+
+  .blog-icon{
+    display: flex;
+    justify-content: space-between;
+    color:rgb(221, 157, 167);
+  }
+
+
+  .comment{
+    width: 90%;
+    margin-bottom: 40px; 
+  }
+
+  .comment-name{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    background: #fff;
+  }
+  
+  .comment-input{
+    font-size: 16px;
+    font-family: 'Lexend', sans-serif;
+    color: #333333;
+    margin-right: 14px;
+    outline: none;
+    background: transparent;
+    border:none;
+  }
+
+  .comment-button{
+    margin-left: -160px;
+    border:none;
+    padding: 6px 10px;
+    background:pink;
+  }
+
+  .comment-area{
+    height:100px;
+ 
+  }
+
+  .first-comment{
+    width: 90%;
+    border: 1px solid palevioletred;
+    position: relative;
+  }
+
+  .first-comment button{
+    border: none;
+  }
+
+  .comment-button{
+    margin-top: 13px;
+  }
+
+  .first-comment .head, .reply .head{
+    justify-content: space-between;
+    font-weight: bold;
+    color: grey;
+  }
+
+  .first-comment .reply-button{
+    position: absolute;
+    right:0;
+    bottom: 0;
+  padding: 8px 12px;
+    background: pink;
+    margin-top:20px;
+  }
+
+  .p-bottom{
+    margin-bottom: 30px;
+  }
+
+ .heart-icon{
+   margin-right:70px;
+ }
+
+  .reply .reply-button{
+    border:none;
+  }
+
+  .reply{
+    position: relative;
+    justify-self: right;
+  border:1px solid palevioletred;
+  width:400px;
+  margin-left: auto;
+  margin-right: 80px;
+  }
+
+  .reply .reply-button{
+    position: absolute;
+    right:0;
+    bottom:0;
+    padding: 8px 10px;
+    background-color: pink;
+
+  }
+
+  .navigations{
+    justify-content: space-between;
+    margin-bottom: 110px;
+    margin-top: 50px;
+  }
+
+  .navigations p{
+    cursor: pointer;
+    margin-top: 10px;
+   
+  }
+
+
+  
+  .navigations .fa-arrow-right{
+    margin-top: 13px;
+    margin-left: 8px;
+  }
+
+  .navigations .fa-arrow-left{
+    margin-top:13px;
+    margin-right: 8px;
+  }
+
+  .newerPost, .olderPost{
+    background:rgb(255, 254, 254);
+    padding: 1px 6px;
+    margin: 0 50px;
+  }
+
+  .newerPost{
+    margin-left: -6px;
+  }
+
+  .ri-share-line{
+    color:black;
+    font-size: 23px;
+    }
+  
+@media (max-width: 500px){
+  .comment-area{
+    height:100px;
+    width: 150px;
+  }
+  }
+
+  @media (min-width:740px){
+    .comment-area{
+     width:170px;
+    }
+  }
+  
+@media (max-width: 800px){
+
+
+  .reply{
+    margin-left: 40px;
+  }
+}
+
+
+@media (min-width:463px){
+  .info .ml{
+    margin-left: 30px;
+  }
+}
+
+
+
+  .post-icon .fa-heart{
+    margin-right: 150px
+  }
+
+
+
+@media (max-width: 700px){
+  .play{
+  margin-left: 60px;
+  }
+  
+  .comment-area{
+    width: 150px;
+  }
+  
+  }
+
+  
+@media (max-width: 760px){
+  .related-posts{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+}
+
+/* footer styles */
+.footer{
+  background-color: rgb(229, 238, 218);
+  padding-top: 60px;
+  padding-bottom: 50px;
+  color: #958d8de2;
+}
+
+.footer .contact ul li{
+  list-style-type: none;
+  margin: 5px 0;
+}
+
+.sub-width{
+  max-width: 460px;
+}
+
+form p{
+  color: #000000;
+  font-weight: 600;
+}
+
+.size{
+  font-size: 25px;
+}
+
+.footer .border{
+  outline: none;
+  padding: 10px 20px;
+  margin: 7px 0;
+  border:none;
+}
+
+.footer .news{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #002240;
+  font-size: 20px;
+}
+
+.footer .new-email{
+  margin-top:12px;
+  margin-bottom: -6px;
+}
+
+
+
+.footer .contact{
+  display: flex;
+}
+
+.footer .submit{
+  border:none;
+  margin: 7px 0;
+  padding: 8px 10px;
+  border-radius: 3px;
+  font-size: 20px;
+  background-color:  rgb(219, 243, 181);
+}
+
+.footer .info{
+  justify-content: space-between;
+}
+
+.info{
+  margin-top:30px;
+  display: flex;
+}
+
+
+@media (min-width: 1131px){
+  .footer .exp{
+    margin-right: 30px;
+  }
+}
+
+
+
+@media (max-width: 860px){
+  .new-email{
+    text-align: 0;
+  }
+}
+
+@media (max-width: 480px){
+  .news-width  .mus{
+    width:150px;
+  }
+
+  .news-width .mus-email{
+    width:250px;
+  }
+}
+
+@media (max-width: 500px){
+    .info{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    }
+
+    .news-width .border{
+      width: -50px;
+    }
+}
+
+
+
+
+
+  

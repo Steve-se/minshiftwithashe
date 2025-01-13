@@ -1,0 +1,203 @@
+{% extends "dashboard/base.html" %}
+
+
+{% block content %}
+    <style>
+      .input-dropdown-container {
+          position: relative;
+          width: 300px;
+      }
+    
+      input {
+          width: 100%;
+          padding: 8px 30px 8px 10px; /* Adding padding to create space for the dropdown */
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 14px;
+      }
+    
+      /* Arrow icon for dropdown */
+      input::after {
+          content: "▼"; /* Arrow symbol */
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none; /* Prevent clicks on the arrow */
+          font-size: 12px;
+          color: #888;
+      }
+    
+      select {
+          display: none; /* Initially hide the select dropdown */
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          border: 1px solid #ccc;
+          border-top: none;
+          z-index: 10;
+          font-size: 14px;
+          background-color: white;
+          box-sizing: border-box;
+          border-radius: 0 0 4px 4px;
+      }
+    
+      .input-dropdown-container:focus-within select {
+          display: block; /* Show select dropdown when input field is focused */
+      }
+    
+      option {
+          padding: 8px;
+      }
+    </style>
+
+<!-- section for create blog  starts  -->
+
+<section style="background-color: beige; padding: 15px;" class="mx-3 pr-3">
+ 
+    <div class="row">
+        <div class="col-md">
+              <div class="title mb-4">
+                <!-- Title -->
+              <p>Title</p>
+                <input type="text" id="text-input" style="padding:15px;" placeholder="blog title">
+              </div>
+              <!-- Title ends here -->
+
+              <!-- Category starts -->
+              <div class="category">
+                <p>Category</p>
+                <div class="input-dropdown-container">
+                  <input type="text" placeholder="Type something..." id="user-input">
+                  <select>
+                      <option value="Faith">Faith</option>
+                      <option value="Love">Love</option>
+                      <option value="Prayer">Prayer</option>
+                      <option value="Hope">Hope</option>
+                      <option value="Relationship">Relationship</option>
+                     
+                  </select>
+              </div>
+              </div>
+            <!-- category ends //-->
+
+
+            <!-- Description here -->
+              <div class="description" style="margin-top: 30px;">
+                <p>Description</p>
+               <textarea name="text" class="px3" style="width: 100%; outline:none; padding: 15px;" ></textarea>
+              </div>
+    
+              <!-- content type dropdown -->
+              <div class="content-type mb-5">
+                <select class="type">
+                  <option value="Content type">Content type</option>
+                  <option value="Article">Article</option>
+                  <option value="Video">Video</option>
+                </select>
+              </div>
+              <!-- Description ends // -->
+        </div>
+    
+    
+    
+      
+        
+        <!-- Image area -->
+        <div class="col-md ">
+        <div class="text-center mt-4">
+    
+         <div class="select-file">
+          <button onclick="document.getElementById('fileInput').click()"> <i class="ri-image-line" alt="Upload File" class="file-upload-image" ></i></button>
+
+          <!-- Hidden file input -->
+          <input type="file" id="fileInput" style="display: none;" onchange="displayFileName()">
+      
+          <!-- Display the file name -->
+         
+          <p id="fileNameDisplay">No file uploaded</p>
+         </div>
+       
+        </div>
+      </div>
+    <!-- Image area ends here-->
+    
+   
+
+    
+    <p class="grey mt-5" style="width: 80%;">Note: This editor is only applicable to the blog description field</p>
+        <div class="toolbar">
+            <div class="toolbar mt-2 bg-light">
+                <button onclick="execCmd('bold')"><i class="fa-solid fa-bold"></i></button>
+                <button onclick="execCmd('italic')"><i class="fa-solid fa-italic"></i></button>
+                <button onclick="execCmd('underline')"><i class="fa-solid fa-underline"></i></button>
+                <button onclick="execCmd('strikeThrough')"><i class="fa-solid fa-strikethrough"></i></button>
+                <select class="mt-1 bg-light" onchange="execCmd('fontName', this.value)">
+                    <option value="">Font Family</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Cursive">Cursive</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Courier">Courier</option>
+                    <option value="Candara">Candara</option>
+                    <option value="Geneva">Geneva</option>
+                </select>
+                <select class="mt-1 bg-light" onchange="execCmd('fontSize', this.value)">
+                    <option value="">Font Size</option>
+                    <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                </select>
+                <button onclick="execCmd('justifyLeft')"><i class="fa-solid fa-align-left"></i></button>
+                <button onclick="execCmd('justifyCenter')"><i class="fa-solid fa-align-justify"></i></button>
+                <button onclick="execCmd('justifyRight')"><i class="fa-solid fa-align-right"></i></button>
+                <button onclick="insertLink()"><i class="fa-solid fa-link"></i></button>
+                <button onclick="execCmd('insertOrderedList')"><i class="fa-solid fa-light fa-list-ol"></i></button>
+                <button onclick="execCmd('insertUnorderedList')"><i class="fa-solid fa-list"></i></button>
+                <input  class="w-50 my-2" type="file" id="imageUpload" onchange="uploadImage()" />
+                <button onclick="execCmd('undo')"><i class="fa-solid fa-undo"></i></button>
+                <button onclick="execCmd('redo')"><i class="fa-solid fa-redo"></i></button>
+            </div>
+    
+            <!-- Blog description field-->
+            <div class="editor" id="editor" contenteditable="true">
+              Blog description here.....
+              <!-- Blog description field ends -->
+    
+            </div>
+        </div>
+    
+        <div class="bottom d-flex">
+          <div>
+            <!-- word counts -->
+            <button class="word" style="background-color: rgb(248, 244, 202); padding:10px;" onclick="countWords()">Click to see word counts</button>
+            <span id="wordCount">Words: 0</span>
+          </div>
+          <div class="d-flex " style="display: flex; align-items: center;">
+            <!-- Archive button -->
+            <div class="Archived-btn mr-3" style="cursor: pointer; padding: 8px; background-color: #ccc; margin: 0 15px;">Archived</div>
+      
+
+            <!-- upload button-->
+            <div class="upload-btn ml-3" style="cursor: pointer; background-color: rgb(235, 226, 187); padding: 10px;">Upload</div>
+          </div>
+          </div>
+      </div>
+      </div>
+</section>
+<!-- section for  create blog ends -->
+
+</div>
+   <!-- main-content ends -->
+
+{%endblock%}

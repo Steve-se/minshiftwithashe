@@ -1,0 +1,287 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MindShiftWithAshe | Home</title>
+    
+  <link rel="stylesheet" href="../../static/css/blog.css">
+  <!-- <link rel="stylesheet" href="../../static/css/blogpost.css"> -->
+   <link rel="stylesheet" href="../../static/css/bootstrap/css/bootstrap.css">
+   <link rel="stylesheet" href="../../static/css/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../static/useFont/css/all.css">
+   <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+   <link href="https://cdn.jsdelivr.net/npm/fastbootstrap@2.2.0/dist/css/fastbootstrap.min.css" rel="stylesheet" integrity="sha256-V6lu+OdYNKTKTsVFBuQsyIlDiRWiOmtC8VQ8Lzdm2i4=" crossorigin="anonymous">
+</head>
+
+
+  <nav class="navbar  navbar-expand-lg bg-white position-sticky fixed-top">
+    <div class="pl-3 container">
+      <a class="navbar-brand fs-4"><span class="ms-madi-regular">MindShiftWithAshe</span></a>
+      
+      <!-- Toggle -->
+      <button class="navbar-toggler shadow-none border-0"
+       type="button" data-bs-toggle="offcanvas" 
+       data-bs-target="#offcanvasNavbar" 
+       aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Sidebar -->
+      <div class="sidebar  offcanvas sideback offcanvas-start" 
+        tabindex="-1" 
+        id="offcanvasNavbar" 
+        aria-labelledby="offcanvasNavbarLabel">
+
+        <!-- Sidebar Header-->
+        <div class="offcanvas-header sideback border-bottom">
+          <h5 class="offcanvas-title"
+           id="offcanvasNavbarLabel"><span class="ms-madi-regular">MindShiftWithAshe</span></h5>
+          <button 
+          type="button"
+           class="btn-close"
+            data-bs-dismiss="offcanvas"
+             aria-label="Close"
+             ></button>
+        </div>
+
+        <div class="offcanvas-body ">
+          <ul class="navbar-nav  justify-content-end flex-grow-1">
+            <li class="nav-item my-4">
+              <a class="nav-link" aria-current="page" href="{% url 'blog:home'%}">Home</a>
+            </li>
+            <li class="nav-item my-4 ">
+              <a class="nav-link" href="#videos">Videos</a>
+            </li>
+            <li class="nav-item my-4">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item my-4">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+           
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+
+
+  
+  <!-- hero section or home -->
+  <div class="hero-section  bg-dark text-warning">
+    <div class="container">
+     <div class="w-100  vh-80 text-center justify-content-center text-white">
+      <h1 class="hero-text times">"As a man thinks in his heart, so is he."<br>Proverbs 23:7</h1>
+  <h6 class="text-center roboto-thin fw">Join me as I share my personal journey of mind shifting, revealing the transformative power<br> of aligning your 
+    thoughts with God's word. Prepare to be challenged, encouraged, and<br> empowered to live a life of purposes and aunthencity.
+  </h6>
+  <div class="hero-buttons">
+    <a href="#follow"><div class="btn mx-2 btn-outline-light roboto-thin">Follow Me</div></a>
+    <!-- follow button-->
+     <a href="#newsletter"><div class="btn mx-2 btn-light roboto-thin">Subscribe to my Newsletter</div></a>
+    <!-- subscribe button-->
+  </div>
+  </div>
+    </div>
+    </div>
+  
+  
+    <!-- blog image -->
+    <section class="image text-center"> 
+        <div class="container" id="about">
+          <p class="fw-bold roboto-thin">Hello</p>
+            <h3 class="times">I am Ashever Jocelyn Terfa</h3>
+            <h6 class="pb-5 grey-col roboto-thin">I am a passionate Christian writer, speaker and blogger on a mission to inspired others<br> to experience the transformation through the renewing of their mind</h6>
+          <div class="first-ele">
+         
+  <!-- home page icons -->
+          </div>
+         <div class="icons">
+          
+          <a href="https://x.com/AsheverTerfa?t=vQDktZVhKvAO8cgQ5KAz1w&s=08" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: black;">
+            <i class="ri-twitter-line"></i>
+          </a>
+     
+          
+          <a href="https://www.linkedin.com/in/ashever-terfa-b54bb723b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: black;">
+            <i class="ri-linkedin-line"></i>
+          </a>
+          <a href="https://www.instagram.com/asheverjocelyn?igsh=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: black;">
+            <i class="ri-instagram-line"></i>
+        </a>
+        
+        <a href="https://www.facebook.com/ashever.aondofa?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: black;">
+            <i class="ri-facebook-circle-line"></i>
+        </a>
+        
+        
+         </div>
+        </div>
+    </section>
+    <!-- blog image section ends here-->
+    
+    
+    
+  
+  
+    <section class="bible text-left text-dark">
+      <div class="container">
+       <h5>
+         "Set your minds on things above<br>
+         Not on earthly things."  <br>
+         Colossians 3:5
+       </h5>
+      </div>
+      </section>
+    
+  
+  
+  
+      <section class="grid">
+        <div class="container text-dark" id="videos">
+          <p class="text-center times article h4">Vlog</p>
+          <h5 class="pb-4 text-center art journey">Journey with me through this transformative video sessions.</h5>
+              <div class="container">
+                   <div class="row my-5">
+  
+                      <!-- Sorting by category -->
+                      <div class="midddle-blog col-md mt-5">
+                          <h5 class="ml-5">Sort by Category</h5>
+                          <ul>
+                            <li><a href="{% url 'blog:home'%}" class="custom-link" style="color: inherit; text-decoration: none;">All</a></li>
+                            {% for category in all_categories %}
+                            <style>
+                              .custom-link:hover {
+                                color: inherit;
+                                text-decoration: none;
+                              }
+                            </style>
+                            
+                            <li><a href="{% url 'blog:home'%}?vlog-category={{category.name}}" class="custom-link" style="color: inherit; text-decoration: none;">{{category.name}}</a></li>
+                            
+                            {% endfor%}
+                          </ul>
+                    </div> 
+  
+      <!-- Search bar -->
+          <div class="col-md">
+              <div class="search-blog">
+                {% if error1 %}
+                <p style="color: red; font-weight: bold; margin-bottom: 20px; text-align: end;" >{{ error1 }}</p>
+            {% endif %}  
+                  <form action="{% url 'blog:home'%}" method="get">
+                      <div class="search">
+                        <input type="text" name="search-vlog" class="search-input" placeholder="search...">
+                        <button type="submit" style="background: none; border: none; cursor: pointer;">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                      </div>
+                  </form>
+                  </div>   
+          </div>
+    </div>
+
+  </div>
+     <!--search bar  end -->
+         
+        
+  
+     <!-- blog description with videos  first-->
+              <div class="grid-container first-blog pb-5">
+                {% include "blog/partials/vlogs_list.html" %}
+    
+     <!-- first blog description ends here -->
+              </div>
+  
+                          <!-- pagination for blog with video -->
+                          {% include "blog/vlog_pagination.html" with vlog_page=vlogs %}
+
+  
+  
+              <!-- First  Articles-->
+              <div class="container">
+                <div class="text-center">
+                  <p class="pt-5  times article h4">Articles</p>
+                  <h6 class=" art">Embark on a life changing expectation through these insightful article series</h6>
+                </div>
+
+
+            <!-- Sorting by category -->
+          <div class="row sort-row">
+          <div class="midddle-blog col-md mt-5">
+            <h5 class="ml-5">Sort by Category</h5>
+            <ul>
+              <li><a href="{% url 'blog:home'%}" class="custom-link" style="color: inherit; text-decoration: none;">All</a></li>
+              {% for category in all_categories %}
+              <style>
+                .custom-link:hover {
+                  color: inherit;
+                  text-decoration: none;
+                }
+              </style>
+              
+              <li><a href="{% url 'blog:home'%}?category={{category.name}}" class="custom-link" style="color: inherit; text-decoration: none;">{{category.name}}</a></li>
+
+            {% endfor%}
+                
+            </ul>
+      </div> 
+
+<!-- Search bar -->
+  <div class="col-md">
+        <div class="search-blog">
+          {% if error2 %}
+                <p style="color: red; font-weight: bold; margin-bottom: 20px; text-align: end;" >{{ error2 }}</p>
+            {% endif %}  
+          <form action="{% url 'blog:home'%}" method="get">        
+          
+              <div class="search">
+                <input type="text" name="search" class="search-input" placeholder="search">
+                <button type="submit" style="background: none; border: none; cursor: pointer;">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              </div>
+          </form>
+          </div>   
+        </div>
+          </div>
+
+              
+                
+              <!-- Normal Article -->
+             <div class="container">
+              <div class="grid-container-all mt-4">
+                {% include "blog/partials/articles_list.html" %}
+              <!-- Normal Article ends-->
+           </div>
+  
+  
+                <!-- pagination for blog without video -->
+                {% include "blog/article_pagination.html" with article_page=articles %}
+
+ 
+          </section>
+  
+  
+  
+  
+  <!-- Last quote-->
+  <section class="last-quote">
+   <div class="container">
+   <div class="quote-text">
+    <h5>"For as he thinks within himselft, so  he is".<br> Proverbs 23:7</h5>
+   </div>
+   </div>
+  </section>
+  
+
+  {% endblock %}

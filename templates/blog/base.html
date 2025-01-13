@@ -1,0 +1,96 @@
+{% load static %}
+
+
+
+<body>
+
+
+{%block content%}{%endblock%}
+
+
+<!-- footer section starts -->
+      
+<footer class="footer">
+    <div class="container">
+ 
+     <div class="row details-margin" id="follow">
+       <div class="col-md contact mt-3">
+       <div>
+           <ul class="margin-right">
+               <li class="h5 text-dark">Socials</li>
+               <li class="py-1">Youtube</li>
+               <li class="py-1">Instagram</li>
+               <li class="py-1">Facebook</li>
+               <li class="py-1">Twitter</li>
+               <li class="py-1">YouVersionBible</li>
+                </ul>
+       </div>
+       <div id="contact">
+         <ul class="margin-left ml-3">
+           <li class="h5 text-dark">For Business Inquiries</li>
+           <li>info@mindshiftwithAshe</li>
+           <li>+234 813 190 3601</li>
+           <li class="py-5"></li>
+           <li class="text-dark h6">Designed By </li>
+           <li>DevCrew Inc.</li>
+         </ul>
+       </div>
+       </div>
+ 
+ 
+       <!-- subscribe to newwletter section -->
+       <div class="col-md-6 ml-2 sub-width " id="newsletter">
+        <p class="my-4 news">Subscribe To My Newsletter</p>
+        {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+        <form action="{% url 'blog:subcribe'%}" class="sub-width" method="post">
+         {%csrf_token%}
+          <div class="d-flex w-100">
+            <div class="margin-right"> 
+              <p class="new-email">First name</p><!-- newsletter first name-->
+              <input type="text" name="first_name" class="border mus" placeholder="Enter first name">
+            </div>
+            <div class="margin-left">
+              <p class="new-email"> Last name</p>
+               <input type="text" name="last_name" class="border mus ml-1" placeholder="Enter last name"><!-- newsletter last name-->
+             </div>
+          </div>
+         
+         <div>
+           <p class="new-email">Email Address</p>
+            <input type="email" name="email" class="border mus-email w-100" placeholder=" Enter email"><!-- newsletter email-->
+         </div>
+          <button class="submit">Submit</button>
+        </form>
+      </div>
+      
+ 
+     </div>
+    </div>
+ 
+ <hr>
+ <div class="info container">
+     <div>
+         <p class="ms-madi-regular size">MindShiftWithAshe</p>
+      </div>
+ <div>
+   <p class="ml">&copy{%now "Y"%} MindShiftWithAshe. All righst reserved.</p>
+ </div>
+
+ </div>
+    </footer>
+       
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="../../static/css/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="../../static/css/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="../../static/css/bootstrap/js/jquery.min.js"></script>
+<script src="{% static 'js/ajax.js' %}?v={% now "U" %}"></script>
+</body>
+</html>
+

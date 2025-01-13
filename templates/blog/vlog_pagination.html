@@ -1,0 +1,37 @@
+<!-- Pagination Section -->
+<div class="container my-5">
+    <style>
+        .blog-pag a {
+            color: inherit; /* Use the inherited text color */
+            text-decoration: none; /* Remove underline */
+        }
+        .blog-pag a:hover {
+            text-decoration: underline; /* Optional: Add underline on hover */
+        }
+        .blog-pag .disabled {
+            opacity: 0.5; /* Make disabled icons appear dimmer */
+        }
+    </style>
+    <div class="blog-pag d-flex align-items-center justify-content-center">
+        <!-- Previous Page -->
+        {% if vlogs.has_previous %}
+        <a href="?vlog_page={{ vlogs.previous_page_number }}" class="ri-arrow-left-s-line mx-3" aria-label="Previous Page"></a>
+        {% else %}
+        <span class="ri-arrow-left-s-line mx-3 disabled" style="cursor: not-allowed;" aria-disabled="true"></span>
+        {% endif %}
+
+        <!-- Current Page Info -->
+        <div>{{ vlogs.number }} of {{ vlogs.paginator.num_pages }}</div>
+
+        <!-- Next Page -->
+        {% if vlogs.has_next %}
+        <a href="?vlog_page={{ vlogs.next_page_number }}" class="ri-arrow-right-s-line mx-3" aria-label="Next Page"></a>
+        {% else %}
+        <span class="ri-arrow-right-s-line mx-3 disabled" style="cursor: not-allowed;" aria-disabled="true"></span>
+        {% endif %}
+    </div>
+</div>
+
+
+
+

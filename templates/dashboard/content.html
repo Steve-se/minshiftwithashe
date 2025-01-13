@@ -1,0 +1,216 @@
+{% extends "dashboard/base.html" %}
+    
+
+{% block content %}
+   <!-- main-content -->
+<div class="main-content">
+
+    <!---  table content for content manager start here -->
+    <section class="content mr-3 px-3 py-2 mb-5 ">
+      <div class="section-effect">
+       <div class="container">
+         <div class="tbl_container">
+           
+             <div class="card">
+                 <div class="content-title">
+                     <h6>Content Manager</h6>
+                 </div>
+                 <table class="table">
+                     <thead>
+                       <tr class="bk">
+                         <th scope="col">Content</th>
+                         <th scope="col">Type</th>
+                         <th scope="col">
+                           <div class="d-flex">
+                            <div>
+                             Created
+                            </div>
+                             <div>
+                               <i class="fa-solid mx-2 mt-1 fa-arrow-down"></i>
+                             </div>
+                           </div>
+                         </th>
+                         <th scope="col">Status</th>
+                         <th scope="col">Action</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+
+                       <!-- first content starts here-->
+                       <tr>
+                         <th class="d-flex">
+                           <div class="checkbox">
+                              <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                           </div>
+                          <div><!-- main content -->
+                             <p>Faith Over Fear: Mind Shift for Courageous Living</p>
+                           <p class="grey">Discover how to shift your thoughts from fear to faith, and gain t..</p>
+                          </div>
+                         </th>
+                         </div>
+                         <td>Video</td>
+                         <td>jul 13,2024</td>
+                         <td>
+                             <div class="d-flex uploaded"><!-- upload verification -->
+                                 <div>
+                                   <i class="fa-solid fa-circle upload-circle"></i>
+                                 </div>
+                                 <div>
+                                   Uploaded
+                                 </div>
+                               </div>
+                         </td>
+                         <td><i class="ri-printer-line"></i></td><!-- printer icon -->
+                         <td><i class="fa-solid fa-cloud-arrow-up color"></i></td><!-- cloud upload icon -->
+                         <td><i class="ri-delete-bin-7-line"></i></td><!-- delete icon -->
+                       </tr>
+                       <!-- first content ends here -->
+
+
+
+
+                       <!-- second content starts here-->
+                       <tr>
+                         <th class="d-flex">
+                               <div class="checkbox">
+                                   <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                                </div>
+                         <div><!-- main content -->
+                             <p>The Power Of Forgiveness: A Mind Shift Towards Healing</p>
+                         <p  class="grey">Learn to renew your mind, let go of bitterness and experience the..</p>
+                         </div>
+                       </th>
+                         <td>Article</td>
+                         <td>jul 13, 2024</td>
+                         <td><p class="Delete"><i class="fa-solid fa-circle delete-circle"></i>Deleted</p></td><!-- delete notificaton -->
+                         <td><i class="ri-printer-line"></i></td><!-- print icon -->
+                         <td><i class="fa-solid fa-cloud-arrow-up"></i></td><!-- cloud icon for upload -->
+                         <td><i class="ri-delete-bin-7-line color"></i></td><!-- delete icon -->
+                       </tr>
+                       <!-- second ends here -->
+
+
+
+                       <!-- third content starts here -->
+                       <tr>
+                         <th class="d-flex">
+                             <div class="checkbox">
+                                 <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                              </div>
+                        <div><!-- main content-->
+                           <p>Silencing Inner Criticism: Embracing God's Voice Within</p>
+                           <p class="grey">Be equip to silence self criticism by shifting your mindset to..</p>
+                        </div>
+                       </th>
+                         <td>Video</td>
+                         <td>jul 13, 2024</td>
+
+                         <td>
+                             <div class="d-flex uploaded"><!-- upload verification-->
+                                 <div>
+                                   <i class="fa-solid fa-circle upload-circle"></i>
+                                 </div>
+                                   <div>
+                                     Uploaded
+                                   </div>
+                                 </div>
+                         </td>
+                         <td><i class="ri-printer-line color"></i></td><!-- print icon -->
+                         <td><i class="fa-solid fa-cloud-arrow-up "></i></td><!-- cloud icon for upload -->
+                         <td><i class="ri-delete-bin-7-line"></i></td><!-- delete icon -->
+                       </tr>
+                       <!-- third content ends here -->
+
+
+
+                       <!-- fourth content starts here -->
+                       <tr>
+                         <th class="d-flex"> 
+                             <div class="checkbox">
+                                 <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                              </div>
+                        <div><!-- main content -->
+                           <p>Letting Go Of Comparison: Embracing Your Unique Journey</p>
+                           <p class="grey">Break free from thr trap of comparing yourself to others by rene..</p></th>
+                        </div>
+                         <td>Article</td>
+                         <td>jul 13, 2024</td>
+                         <td><p>
+                             <div class="d-flex new-achieved"><!-- archieved verification -->
+                             <div>
+                               <i class="fa-solid fa-circle new-ach-circle"></i>
+                             </div>
+                               <div>
+                                 Achieved
+                               </div>
+                             </div>
+                           </p></td>
+
+                           <td><i class="ri-printer-line"></i></td><!-- printer icon -->
+                         <td><i class="fa-solid fa-cloud-arrow-up color"></i></td><!-- cloud icon for upload -->
+                         <td><i class="ri-delete-bin-7-line"></i></td><!-- delete icon -->
+                       </tr>
+
+
+
+                       <!-- fifth content starts here -->
+                       <tr>
+                         <th class="d-flex">
+                           <div>
+                               <div class="checkbox">
+                                   <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                                </div>
+                           </div>
+                         <div><!-- main content-->
+                             <p>Cultivating Gratitude: A Mind Shift Towards Abundance</p>
+                         <p  class="grey">Learn how to shift your set to onw of thankfulness and exper..</p>
+                         </div>
+                       </th>
+                         <td>Article</td>
+                         <td>jul 8, 2024</td>
+
+                         <td>
+                             <div class="d-flex uploaded"><!-- upload verification -->
+                                 <div>
+                                   <i class="fa-solid fa-circle upload-circle"></i>
+                                 </div>
+                                   <div>
+                                     Uploaded
+                                   </div>
+                                 </div>
+                         </td>
+                         <td><i class="ri-printer-line"></i></td><!-- printer icon -->
+                         <td><i class="fa-solid fa-cloud-arrow-up color"></i></td><!-- cloud icon for upload -->
+                         <td><i class="ri-delete-bin-7-line"></i></td><!-- delete icon -->
+                       </tr>
+                     <!-- fifth content ends here -->
+                     </tbody>
+                   </table>
+                   <hr>
+                   
+   <!-- pagination -->
+     <div class="container">
+       <div class="pagination mb-2 d-flex">
+         <div class="count">
+           <p>1 of 10</p>
+         </div>
+         <div class="pag-button d-flex">
+           <button class="prev mr-3 px-1">Previous</button>
+           <button class="next ml-3 px-1">Next</button>
+         </div>
+          </div>
+     </div>
+<!-- pagination ends here -->
+
+             </div>
+         </div>
+     </div>
+      </div>
+    
+     </section>
+<!-- content ends here -->
+
+</div>
+   <!-- main-content ends -->
+
+{%endblock%}
