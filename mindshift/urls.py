@@ -6,8 +6,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('ashe-admin/', admin.site.urls),
     path('', include('blog.urls'), name='blog'),
-    path('dashboard/', include('dashboard.urls'), name='blog'),
-    path('account/', include('account.urls'), name='account')
+    
+    
+    path('newsletter/', include('newsletter.urls'), name='newsletter'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

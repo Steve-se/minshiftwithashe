@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You for Subscribing</title>
+    <style>
+        body {
+            background: #eaeaea;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            background: #fec5e5; /* Light pink */
+            padding: 2em 5em;
+        }
+
+        .banner h2,
+        .banner h5 {
+            color: #ffffff;
+        }
+
+
+        /* .email-container {
+            margin: 2%;
+            background: #ffffff;
+        } */
+
+        .email-content {
+            padding: 2em 5em;
+        }
+
+        .sig {
+            font-family: Georgia, serif;
+            font-size: 1.5em;
+        }
+
+        .mindshift {
+            font-family: cursive;
+            display: inline;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1a0dab;
+        }
+
+        hr {
+            margin-top: 2em;
+            background: rgba(255, 105, 180, 0.5);
+            height: 1px;
+            border: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1em;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .email-content,
+            .banner {
+                padding: 1em;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .sig {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="banner">
+            <h5 class="a" style=" margin-bottom: 0.5em; font-size: 1.2em;">Subscription Successful!</h5>
+            <h2 class="b" style=" margin-bottom: 0.5em;">We Feel <span style="color: white;">the Love</span></h2>
+        </div>
+        <div class="email-content">
+            <p>Hi {{ first_name }}!</p>
+            <p>Thank you for subscribing. We're excited to share updates and insights with you. Stay tuned!</p>
+            <p>
+                <a href="https://www.facebook.com/ashever.aondofa?mibextid=ZbWKwL"><strong>Facebook</strong></a> |
+                <a href="https://x.com/AsheverTerfa?t=vQDktZVhKvAO8cgQ5KAz1w&s=08"><strong>Twitter</strong></a> |
+                <a href="https://www.instagram.com/asheverjocelyn?igsh=OGQ5ZDc2ODk2ZA=="><strong>Instagram</strong></a>
+            </p>
+            <hr>
+            <p>Sincerely,</p>
+            <p class="sig">Ashe</p>
+            <p>admin @<span class="mindshift">MindShiftWithAshe</span></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><a href="{{ unsubscribe_url }}">Unsubscribe</a></p>
+    </div>
+</body>
+</html>

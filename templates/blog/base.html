@@ -10,93 +10,212 @@
 
 <!-- footer section starts -->
       
-<footer class="footer">
-    <div class="container">
- 
-     <div class="row details-margin" id="follow">
-       <div class="col-md contact mt-3">
-       <div>
-           <ul class="margin-right">
-               <li class="h5 text-dark">Socials</li>
-               <li class="py-1">Youtube</li>
-               <li class="py-1">
-                <a href="https://www.instagram.com/mindshiftwithashe?igsh=OGQ5ZDc2ODk2ZA==" target="_blank" style="color: #002240; text-decoration: none;">
-                    Instagram
-                </a>
+<footer class="footer" style="background:#f9f9f9;padding:2rem 1rem;">
+  <div class="container">
+
+    <div class="row" id="follow" style="gap: 2rem;">
+
+      <!-- Social + Contact Column -->
+      <div class="col-12 col-md-5 mt-3" style="display: flex; flex-direction: column; gap: 2rem;">
+        
+        <!-- Socials -->
+        <div>
+          <ul style="list-style:none;padding:0;">
+            <li class="h5 text-dark">Socials</li>
+            <li class="py-1">Youtube</li>
+            <li class="py-1">
+              <a href="https://www.instagram.com/mindshiftwithashe?igsh=OGQ5ZDc2ODk2ZA==" target="_blank" style="color:#002240; text-decoration: none;">
+                Instagram
+              </a>
             </li>
             <li class="py-1">
-                <a href="https://www.facebook.com/share/15JYAWmmhi/" target="_blank" style="color:#002240; text-decoration: none;">
-                    Facebook
-                </a>
+              <a href="https://www.facebook.com/share/15JYAWmmhi/" target="_blank" style="color:#002240; text-decoration: none;">
+                Facebook
+              </a>
             </li>
-            
-               <li class="py-1">Twitter</li>
-               <li class="py-1">YouVersionBible</li>
-                </ul>
-       </div>
-       <div id="contact">
-         <ul class="margin-left ml-3">
-           <li class="h5 text-dark">For Business Inquiries</li>
-           <li>
-            <a href="mailto:mindshiftwithashe@gmail.com" style="color:#002240; text-decoration: none;">
+            <li class="py-1">Twitter</li>
+            <li class="py-1">YouVersionBible</li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div id="contact">
+          <ul style="list-style:none;padding:0;">
+            <li class="h5 text-dark">For Business Inquiries</li>
+            <li>
+              <a href="mailto:mindshiftwithashe@gmail.com" style="color:#002240;text-decoration: none;">
                 mindshiftwithashe@gmail.com
-            </a>
-        </li>
-        
-           <li>+234 813 190 3601</li>
-           <li class="py-5"></li>
-           <li class="text-dark h6">Designed By </li>
-           <li>DevCrew Inc.</li>
-         </ul>
-       </div>
-       </div>
- 
- 
-       <!-- subscribe to newwletter section -->
-       <div class="col-md-6 ml-2 sub-width " id="newsletter">
-        <p class="my-4 news">Subscribe To My Newsletter</p>
-        {% if messages %}
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-
-        <form action="{% url 'blog:subcribe'%}" class="sub-width" method="post">
-         {%csrf_token%}
-          <div class="d-flex w-100">
-            <div class="margin-right"> 
-              <p class="new-email">First name</p><!-- newsletter first name-->
-              <input type="text" name="first_name" class="border mus" placeholder="Enter first name">
-            </div>
-            <div class="margin-left">
-              <p class="new-email"> Last name</p>
-               <input type="text" name="last_name" class="border mus ml-1" placeholder="Enter last name"><!-- newsletter last name-->
-             </div>
-          </div>
-         
-         <div>
-           <p class="new-email">Email Address</p>
-            <input type="email" name="email" class="border mus-email w-100" placeholder=" Enter email"><!-- newsletter email-->
-         </div>
-          <button class="submit">Submit</button>
-        </form>
+              </a>
+            </li>
+            <li>+234 813 190 3601</li>
+            <li class="text-dark h6 mt-4">Designed By</li>
+            <li>DevCrew Inc.</li>
+          </ul>
+        </div>
       </div>
-      
- 
-     </div>
+
+
+
+
+
+ <!-- Newsletter Form -->
+<div id="newsletter" class="col-12 col-md-6">
+  <p class="h5 my-3">Subscribe To My Newsletter</p>
+
+  <div id="newsletter-messages" style="margin-bottom: 1rem;"></div>
+
+  <!-- Loader -->
+  <div id="newsletter-loader" style="display: none; text-align:center; margin-bottom: 1rem;">
+    <div style="
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid pink;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    "></div>
+  </div>
+
+  <form id="newsletter-form" method="post" style="width:100%;padding:1rem 0;">
+    {% csrf_token %}
+
+    <!-- First and Last Name -->
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1rem;">
+      <div style="flex:1;">
+        <label style="display:block;font-weight:bold;margin-bottom:0.3rem;">First Name</label>
+        <input type="text" name="first_name" placeholder="Enter first name"
+               style="width:100%;padding:0.6rem;border:1px solid #ccc;border-radius:4px;">
+      </div>
+      <div style="flex:1;">
+        <label style="display:block;font-weight:bold;margin-bottom:0.3rem;">Last Name</label>
+        <input type="text" name="last_name" placeholder="Enter last name"
+               style="width:100%;padding:0.6rem;border:1px solid #ccc;border-radius:4px;">
+      </div>
     </div>
- 
- <hr>
- <div class="info container">
-     <div>
-         <p class="ms-madi-regular size">MindShiftWithAshe</p>
-      </div>
- <div>
-   <p class="ml">&copy{%now "Y"%} MindShiftWithAshe. All righst reserved.</p>
- </div>
 
- </div>
-    </footer>
+    <!-- Email Field -->
+    <div style="margin-bottom:1rem;">
+      <label style="display:block;font-weight:bold;margin-bottom:0.3rem;">Email Address</label>
+      <input type="email" name="email" placeholder="Enter email"
+             style="width:100%;padding:0.6rem;border:1px solid #ccc;border-radius:4px;" required>
+    </div>
+
+    <!-- Submit Button (now pink) -->
+    <button type="submit"
+            style="padding:0.8rem 1.5rem;background-color:pink;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:bold;">
+      Submit
+    </button>
+  </form>
+</div>
+
+<!-- Spinner + Modal Styles -->
+<style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Modal styles */
+  #success-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  #success-modal-content {
+    background: #fff;
+    padding: 2rem;
+    max-width: 400px;
+    margin: 10% auto;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  #success-modal-content button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: pink;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* Hover effects for buttons */
+  button:hover,
+  #success-modal-content button:hover {
+    background-color: white !important;
+    color: pink !important;
+    border: 1px solid pink !important;
+  }
+</style>
+
+<!-- Modal HTML -->
+<div id="success-modal">
+  <div id="success-modal-content">
+    <p id="modal-message">Successfully subscribed!</p>
+    <button onclick="document.getElementById('success-modal').style.display='none'">Close</button>
+  </div>
+</div>
+
+<!-- JQuery for AJAX -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- AJAX Logic with Modal -->
+<script>
+  $(function() {
+    $('#newsletter-form').on('submit', function(e) {
+      e.preventDefault();
+
+      const form = $(this);
+      const url = "{% url 'newsletter:subscribe' %}";
+      const formData = form.serialize();
+
+      $('#newsletter-messages').empty();
+      $('#newsletter-loader').show();
+
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: formData,
+        headers: {
+          'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function(response) {
+          $('#newsletter-loader').hide();
+          $('#newsletter-messages').html('');
+          $('#modal-message').text(response.message || "Successfully subscribed!");
+          $('#success-modal').fadeIn(); // Show modal
+          form[0].reset();
+        },
+        error: function(xhr) {
+          $('#newsletter-loader').hide();
+          const msg = xhr.responseJSON?.message || 'Something went wrong.';
+          $('#newsletter-messages').html(`<p style="color: red;">${msg}</p>`);
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+    <!-- Footer Bottom -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+      <p class="ms-madi-regular size mb-2 mb-md-0">MindShiftWithAshe</p>
+      <p class="ml mb-0">&copy; {% now "Y" %} MindShiftWithAshe. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
        
 
 

@@ -8,7 +8,7 @@
                 <source src="{{ vlog.video_file.ogv_url }}" type="video/ogg"> 
             </video>   
         </div>
-        <h6 class="py-3">{{ vlog.title }}</h6>
+        <h6 class="py-3">{{ vlog.title|upper }}</h6>
         <p>{{ vlog.description|safe }}</p>
         <div class="blog-icon d-flex">
             <div>

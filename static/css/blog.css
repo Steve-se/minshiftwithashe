@@ -290,13 +290,50 @@ padding-top:100px;
 }
 
 
-.grid-container-all{
+/* .grid-container-all{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  
+ 
+  gap: 10px; 
+  padding: 10px; 
+} */
+
+#articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* default: 3 on desktop */
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px; /* Adjust the gap between grid items */
-  padding: 10px; /* Optional: Padding around the grid */
+  gap: 10px;
+  padding: 10px;
 }
+
+/* Large Desktop (big monitors, >1400px) */
+/* @media (min-width: 1400px) {
+  #articles-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */
+
+/* Laptop (>=992px and <=1399px) */
+/* @media (min-width: 992px) and (max-width: 1399px) {
+  #articles-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} */
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  #articles-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  #articles-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .grid-item-one{
   background-color: #ccc;

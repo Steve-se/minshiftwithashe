@@ -1,54 +1,63 @@
-{% if articles %}
-    {% for article in articles %}
-    <div class="grid-item-one card text-center mx-2 mt-3 bg-white">
-        <h6 class="py-2">{{ article.title }}</h6>
-        <p>{{ article.body|safe|truncatewords:25 }}</p>
-        <button type="button" class="read-button" onclick="window.location.href='{% url 'blog:detail-page' slug=article.slug %}'">
-            Read More
-        </button>
-    </div>
-    {% endfor %}
-{% else %}
-    {% if article_category_selected %}
-    <div class="text-center mt-5">
-        <p class="text-muted">No articles available in the "{{ article_selected_category }}" category.</p>
-    </div>
+{% load static %}
+
+<!-- Wrapper where articles will be injected -->
+<div class="grid-container-all mt-4" id="articles-container" >
+    {% if articles %}
+        {% for article in articles %}
+        <div class="grid-item-one card text-center mx-2 mt-3 bg-white">
+            <h6 class="py-2">{{ article.title|upper }}</h6>
+
+            <!-- Author and Date with Modal Trigger -->
+            <p class="text-muted small mb-1">
+                <em>
+                    By 
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#authorModal{{ article.author.id }}">
+                        {{ article.author.name }}
+                    </a> • {{ article.created|date:"F j, Y" }}
+                </em>
+            </p>
+
+            <p>{{ article.body|safe|truncatewords:20 }}</p>
+
+            <button type="button" class="read-button" onclick="window.location.href='{% url 'blog:detail-page' slug=article.slug %}'">
+                Read More
+            </button>
+        </div>
+
+        <!-- Author Modal -->
+        <div class="modal fade" id="authorModal{{ article.author.id }}" tabindex="-1" aria-labelledby="authorModalLabel{{ article.author.id }}" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="authorModalLabel{{ article.author.id }}">About {{ article.author.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row align-items-center">
+                  <div class="col-md-4 text-center mb-3 mb-md-0">
+                    {% if article.author.profile_picture %}
+                      <img src="{{ article.author.profile_picture.url }}" alt="{{ article.author.name }}" class="img-fluid rounded-circle shadow" style="width: 150px; height: 150px; object-fit: cover;">
+                    {% else %}
+                      <img src="{% static 'img/dummy.png' %}" alt="Default Profile" class="img-fluid rounded-circle shadow" style="width: 150px; height: 150px; object-fit: cover;">
+                    {% endif %}
+                  </div>
+
+                  <div class="col-md-8">
+                    <p><strong>Name:</strong> {{ article.author.name }}</p>
+                    <p><strong>Email:</strong> {{ article.author.email }}</p>
+                    <p><strong>Bio:</strong> {{ article.author.bio|default:"This author hasn’t added a bio yet." }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
     {% else %}
         <div class="text-center mt-5">
             <p class="text-muted">No articles found.</p>
         </div>
     {% endif %}
-{% endif %}
+</div>
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    function fetchFilteredContent(params) {
-        fetch(`?${params}`, {
-            headers: { 'X-Requested-With': 'XMLHttpRequest' }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Update the content of your containers
-            document.getElementById("articles-container").innerHTML = data.articles_html;
-            document.getElementById("vlogs-container").innerHTML = data.vlogs_html;
-        })
-        .catch(error => console.error('Error:', error));
-    }
-
-    // Example event listener for a category link
-    document.querySelectorAll(".category-link").forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-            const category = this.dataset.category;
-            fetchFilteredContent(`category=${category}`);
-        });
-    });
-});
-
-</script>

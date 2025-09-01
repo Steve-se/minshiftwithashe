@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Category, Vlog, Article, Comment, Subscriber
+from .models import Category, Vlog, Article, Comment
 
 admin.site.site_header = "MindshiftWithAshe Admin Panel"
 admin.site.site_title = "MindshiftWithAshe Admin"
 admin.site.index_title = "Welcome to the MindshiftWithAshe Management"
 
-admin.site.register(Subscriber)
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -19,7 +19,7 @@ class VlogAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'status', 'created', )
+    list_display = ('title', 'category', 'status', 'likes', 'created')
     list_filter = ('status', 'created')
     search_fields = ('title', 'body')
     prepopulated_fields = {'slug': ('title',)}

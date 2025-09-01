@@ -1,0 +1,7 @@
+fix the author part--- if author is admin (done)
+
+turn the title to uppercase(done)
+articles should filter by authors too 
+make the article more readable on the detail page (increase font) (done)
+the article display is fucked -- fix it 
+work vlog display too

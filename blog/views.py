@@ -1,14 +1,29 @@
-from .models import Category, Vlog, Article, Comment, Subscriber
+from .models import Category, Vlog, Article, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q, Count
 from difflib import SequenceMatcher
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.shortcuts import render, get_object_or_404, redirect
-from django.conf import settings
-from django.core.mail import send_mail
-from common.utils import check_if_email_exists
-from django.contrib import messages
+from django.utils import timezone
+import requests
+from django.views.decorators.http import require_GET
+
+
+
+@require_GET
+def get_bible_verse(request):
+    ref = request.GET.get("ref", "")
+    try:
+        res = requests.get(f"https://bible-api.com/{ref}")
+        data = res.json()
+        return JsonResponse({
+            "reference": data.get("reference", ref),
+            "text": data.get("text", "Verse not found.")
+        })
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
 
 
 def home(request):
@@ -57,7 +72,7 @@ def home(request):
             )
 
     # Pagination for vlogs
-    vlog_paginator = Paginator(vlog_query, 2) 
+    vlog_paginator = Paginator(vlog_query, 12) 
     vlog_page = request.GET.get('vlog_page', 1)
     try:
         vlogs = vlog_paginator.page(vlog_page)
@@ -67,7 +82,7 @@ def home(request):
         vlogs = vlog_paginator.page(vlog_paginator.num_pages)
 
     # Pagination for articles
-    article_paginator = Paginator(article_query, 10) 
+    article_paginator = Paginator(article_query, 12) 
     article_page = request.GET.get('article_page', 1)
     try:
         articles = article_paginator.page(article_page)
@@ -76,11 +91,17 @@ def home(request):
     except EmptyPage:
         articles = article_paginator.page(article_paginator.num_pages)
 
+
     # Handle AJAX requests
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        vlogs_html = render_to_string('blog/partials/vlogs_list.html', {'all_vlog': vlogs})
-        articles_html = render_to_string('blog/partials/articles_list.html', {'all_articles': articles})
-        return JsonResponse({'vlogs_html': vlogs_html, 'articles_html': articles_html})
+        if article_selected_category or search_article:
+            articles_html = render_to_string('blog/partials/articles_list.html', {'articles': articles})
+            return JsonResponse({'articles_html': articles_html})
+        
+        elif vlog_selected_category or search_vlog:
+            vlogs_html = render_to_string('blog/partials/vlogs_list.html', {'all_vlog': vlogs})
+            return JsonResponse({'vlogs_html': vlogs_html})
+    
 
     # Render the full page for regular requests
     context = {
@@ -99,35 +120,26 @@ def home(request):
 # ================================ DETAIL PAGE ============================================
 def detail(request, slug):
     article = get_object_or_404(Article, slug=slug, status='upload')
+    absolute_image_url = request.build_absolute_uri(article.image_file.url)
+    absolute_post_url = request.build_absolute_uri()
 
     previous_article = Article.objects.filter(id__lt=article.id, status='upload').order_by('-id').first()
     next_article = Article.objects.filter(id__gt=article.id, status='upload').order_by('id').first()
 
-    # Get articles with the same category as the current article
-    similar_articles = Article.objects.filter(category=article.category)
-    similar_articles = similar_articles.exclude(slug=article.slug)
+    # Similar articles
+    similar_articles = Article.objects.filter(category=article.category).exclude(slug=article.slug)
     similar_vlogs = Vlog.objects.filter(category=article.category)
-    
-    # Compute similarity based on title
-    similarity_threshold = 0.3
-    similar_articles_filtered = []
-    for x in similar_articles:
-        body_similarity = SequenceMatcher(None, article.body, x.body).ratio()
-        article_similarity = SequenceMatcher(None, article.title, x.title).ratio()
-        similarity_ratio = body_similarity + article_similarity
-        print(similarity_ratio, '-------------------------------')
-        if similarity_ratio >= similarity_threshold:
-            similar_articles_filtered.append(x)
-    similar_articles_filtered = similar_articles_filtered[:4]
 
-    # compute similarity for vid based on title 
-    vid_similarity_threshold1 = 0.3
-    vid_similar_vlog_filtered = []
-    for x in similar_vlogs:
-        vid_similarity_ratio = SequenceMatcher(None, article.title, x.title).ratio()
-        if vid_similarity_ratio >= vid_similarity_threshold1:
-            vid_similar_vlog_filtered.append(x)
-    vid_similar_vlog_filtered = vid_similar_vlog_filtered[:4]
+    similarity_threshold = 0.3
+    similar_articles_filtered = [
+        x for x in similar_articles
+        if SequenceMatcher(None, article.body, x.body).ratio() + SequenceMatcher(None, article.title, x.title).ratio() >= similarity_threshold
+    ][:4]
+
+    vid_similar_vlog_filtered = [
+        x for x in similar_vlogs
+        if SequenceMatcher(None, article.title, x.title).ratio() >= 0.3
+    ][:4]
 
     # Handle comment submission (POST request)
     if request.method == "POST":
@@ -136,24 +148,27 @@ def detail(request, slug):
         body = request.POST.get('body')
         parent_id = request.POST.get('parent_id')
 
-        if name and email and body:  # Ensure all fields are provided
-            # Handle parent comment or reply
+        if name and email and body:
             if parent_id:
-                parent_comment = Comment.objects.get(id=parent_id)
+                parent_comment = Comment.objects.filter(id=parent_id).first()
                 comment = Comment(article=article, parent=parent_comment, name=name, email=email, body=body)
             else:
                 comment = Comment(article=article, name=name, email=email, body=body)
+            comment.save()
 
-            comment.save() 
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                return JsonResponse({
+                    'success': True,
+                    'name': comment.name,
+                    'body': comment.body,
+                    'created': timezone.localtime(comment.created).strftime('%d.%m.%Y'),
+                })
 
-            # Redirect back to the same article page after submission
             return redirect('blog:detail-page', slug=article.slug)
 
-    # Get total comments and parent comments
     total_comments_count = Comment.objects.filter(article=article, active=True).count()
     parent_comments = Comment.objects.filter(article=article, parent=None, active=True)
 
-    # Pass data to the context
     context = {
         "article": article,
         "previous_article": previous_article,
@@ -161,63 +176,39 @@ def detail(request, slug):
         "similar_articles_filtered": similar_articles_filtered,
         "similar_vlog_filtered": vid_similar_vlog_filtered,
         "comments": parent_comments,
-        "total_comments": total_comments_count
+        "total_comments": total_comments_count,
+        'absolute_image_url': absolute_image_url,
+        'absolute_post_url': absolute_post_url,
     }
 
     return render(request, 'blog/blogpost.html', context)
 
 
 
-# =============================== SUBSCRIBE TO NEWSLETTER ===========================================
-
-
-def subscribe_to_newsletter(request):
-    if request.method == 'POST':
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        email = request.POST.get("email")
-
-        # Check if email already exists
-        if Subscriber.objects.filter(email=email).exists():
-            messages.error(request, "This email already exists!")
-            return redirect('blog:home')
-
-        # Notify the subscriber via email
-        subject = "Thank you for subscribing"
-        message = f"Hi {first_name}, you have successfully subscribed to our newsletter."
-        sender_email = settings.EMAIL_HOST_USER
-        recipient_list = [email]
-
-        sent = send_mail(subject, message, sender_email, recipient_list)
-        if sent:
-            # Save the subscriber
-            Subscriber.objects.create(email=email, first_name=first_name, last_name=last_name)
-            messages.success(request, "Successfully subscribed!")
-        else:
-            messages.error(request, "Failed to send subscription email. Please try again.")
-
-        return redirect('blog:home')
-
-    return render(request, 'base.html')
-
-
-
 # ============================== LIKE SYSTEM ================================
-def like_vlog(request, vlog_id):
-    vlog = get_object_or_404(Vlog, id=vlog_id)
+def like_post(request, slug):
+    article = get_object_or_404(Article, slug=slug, status='upload')
 
-    # Check if this vlog has already been liked by the user
-    liked_vlogs = request.session.get('liked_vlogs', [])
-    if vlog_id in liked_vlogs:
-        return JsonResponse({'liked': False, 'message': 'You have already liked this!', 'likes_count': vlog.likes})
+    # Track liked articles using session
+    liked_articles = request.session.get('liked_articles', [])
 
-    # Increment likes and save
-    vlog.likes += 1
-    vlog.save()
+    if article.id in liked_articles:
+        return JsonResponse({
+            'liked': False,
+            'message': 'You have already liked this post!',
+            'likes_count': article.likes
+        })
 
-    # Mark this vlog as liked in the session
-    liked_vlogs.append(vlog_id)
-    request.session['liked_vlogs'] = liked_vlogs
+    # Increment like count
+    article.likes += 1
+    article.save()
 
-    return JsonResponse({'liked': True, 'likes_count': vlog.likes})
+    # Save the like in session
+    liked_articles.append(article.id)
+    request.session['liked_articles'] = liked_articles
 
+    return JsonResponse({
+        'liked': True,
+        'likes_count': article.likes,
+        'message': 'Thanks for liking!'
+    })

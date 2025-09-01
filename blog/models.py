@@ -1,5 +1,8 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from author.models import Author
+
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200, unique=True)
@@ -25,7 +28,7 @@ class Category(models.Model):
 class Vlog(models.Model):
     title = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="vlogs")
-    description = RichTextField()
+    # description = RichTextField()
     like = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     video_file = models.FileField(upload_to='videos/')
@@ -36,6 +39,8 @@ class Vlog(models.Model):
     
     class Meta:
         ordering = ['-created']
+
+
 
 
 class Article(models.Model):
@@ -49,7 +54,9 @@ class Article(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='archived')
     slug = models.SlugField(max_length=250, unique=True)
     body = RichTextField()
-    likes = models.IntegerField(default=0)
+    likes = models.PositiveIntegerField(default=0)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="articles")
+# 
     created = models.DateTimeField(auto_now_add=True)
     image_file = models.ImageField(upload_to='images/')
 
@@ -78,13 +85,5 @@ class Comment(models.Model):
     def is_reply(self):
         return self.parent is not None  
     
+    
 
-class Subscriber(models.Model):
-    email = models.EmailField(unique=True)
-    first_name = models.CharField(max_length=2000)
-    last_name = models.CharField(max_length=2000)
-    subscribed_at = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.email

@@ -30,11 +30,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     # local
-    'account',
+    
     'blog',
-    'dashboard',
 
+    'author',
+    'pledge',
+    'newsletter',
+    
     # dependencies 
     'ckeditor',
     'ckeditor_uploader',
@@ -74,8 +78,8 @@ WSGI_APPLICATION = 'mindshift.wsgi.application'
 # CONFIGURING DJANGO MAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mrejembistephen@gmail.com'
-EMAIL_HOST_PASSWORD = 'qudt zcgc kszc auuz'
+EMAIL_HOST_USER = 'mindshiftwithashe@gmail.com'
+EMAIL_HOST_PASSWORD = 'bshy xgff tjpy tnzi'
 EMAIL_PORT = '465'
 # EMAIL_USE_TLS = 'True'
 EMAIL_USE_SSL = 'True'
@@ -86,16 +90,16 @@ EMAIL_USE_SSL = 'True'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
-DATABASES= {'default': dj_database_url.parse(env('DATABASE_URL'))}
+# DATABASES= {'default': dj_database_url.parse(env('DATABASE_URL'))}
 
 
 

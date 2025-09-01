@@ -292,7 +292,8 @@ padding-top:100px;
 
 .grid-container-all{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: repeat(2, 1fr);
   gap: 10px; /* Adjust the gap between grid items */
   padding: 10px; /* Optional: Padding around the grid */

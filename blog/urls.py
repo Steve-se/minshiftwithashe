@@ -1,9 +1,13 @@
 from django.urls import path
-from .views import home, detail, subscribe_to_newsletter, like_vlog
+from .views import home,get_bible_verse, detail, like_post
 app_name = 'blog'
 urlpatterns = [
     path('', home, name='home'),
+    path("get-bible-verse/", get_bible_verse, name="get_bible_verse"),
     path('<str:slug>/', detail, name='detail-page'),
-    path('subscribe', subscribe_to_newsletter, name='subcribe'),
-    path('like/<int:vlog_id>/', like_vlog, name='like-vlog'),
+    path('like/<slug:slug>/', like_post, name='like-article'),
+    
+    
+
+
 ]
