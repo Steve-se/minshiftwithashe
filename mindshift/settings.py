@@ -16,9 +16,9 @@ environ.Env.read_env(os.path.join('.env'))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mindshiftwithashe.onrender.com', 'www.mindshiftwithashe.com', 'mindshiftwithashe.com', 'localhost:8000']
 
 
 # Application definition
@@ -146,7 +146,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # WhiteNoise specific settings
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 
 
 # Default primary key field type
@@ -154,6 +155,29 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Use HTTPS everywhere
+SECURE_SSL_REDIRECT = True  # Redirect all HTTP to HTTPS
+
+# HSTS (forces browsers to use HTTPS only)
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Cookies (prevent leakage over HTTP)
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Prevent browser from guessing content type (security hardening)
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Prevent your site from being iframed (mitigate clickjacking)
+X_FRAME_OPTIONS = "DENY"
+
+# Use modern referrer policy
+SECURE_REFERRER_POLICY = "strict-origin"
+
+# Set default auto field
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 logging.basicConfig(
