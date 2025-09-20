@@ -18,8 +18,13 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mindshiftwithashe.onrender.com', 'www.mindshiftwithashe.com', 'mindshiftwithashe.com', 'localhost:8000']
-
+ALLOWED_HOSTS = [
+    'mindshiftwithashe.onrender.com', 
+    'www.mindshiftwithashe.com',       
+    'mindshiftwithashe.com',          
+    'localhost',                       
+    '127.0.0.1'                       
+]
 
 # Application definition
 
@@ -156,28 +161,27 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Use HTTPS everywhere
-SECURE_SSL_REDIRECT = True  # Redirect all HTTP to HTTPS
+# SECURE_SSL_REDIRECT = True  # Redirect all HTTP to HTTPS
 
 # HSTS (forces browsers to use HTTPS only)
-SECURE_HSTS_SECONDS = 31536000  # 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_SECONDS = 31536000  # 1 year
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
 
 # Cookies (prevent leakage over HTTP)
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 # Prevent browser from guessing content type (security hardening)
-SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Prevent your site from being iframed (mitigate clickjacking)
-X_FRAME_OPTIONS = "DENY"
+# X_FRAME_OPTIONS = "DENY"
 
 # Use modern referrer policy
-SECURE_REFERRER_POLICY = "strict-origin"
+# SECURE_REFERRER_POLICY = "strict-origin"
 
 # Set default auto field
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 logging.basicConfig(
